@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dam.inspalamos.mypasswords.MainActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <EditText
+            android:id="@+id/usuari"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Usuari"
+            android:inputType="textPersonName"/>
+
+        <EditText
+            android:id="@+id/contrasenya1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPassword|textVisiblePassword"
+            android:text="Name"
+            app:layout_constraintTop_toBottomOf="@+id/contrasenya2"
+            tools:layout_editor_absoluteX="72dp"/>
+
+        <EditText
+            android:id="@+id/contrasenya2"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:ems="10"
+            android:inputType="textPassword|textVisiblePassword"
+            android:text="Name"
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="212dp"/>
+
+        <TextView
+            android:id="@+id/contrasenya_oblidada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="He oblidat la contrasenya"
+            android:textAlignment="textEnd"
+            tools:layout_editor_absoluteX="104dp"
+            tools:layout_editor_absoluteY="325dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/titol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="61dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <Button
+        android:id="@+id/bt_entrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="Entrar"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        />
+
+</android.support.constraint.ConstraintLayout>

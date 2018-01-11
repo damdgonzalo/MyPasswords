@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             tools:layout_editor_absoluteY="25dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="183dp"
+        android:layout_height="202dp"
+        app:srcCompat="@drawable/ic_whatsapp_gran"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="70dp"/>
+
+    <LinearLayout
+        android:id="@+id/fons_quadrat"
+        android:layout_width="315dp"
+        android:layout_height="331dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="168dp">
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/nom_aplicacio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom aplicació"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="271dp"/>
+
+    <ViewSwitcher
+        android:id="@+id/switcher_usuaris"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="324dp">
+
+        <TextView
+            android:id="@+id/usuari_veure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/usuari_editar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:textSize="18sp"/>
+
+    </ViewSwitcher>
+
+    <ViewSwitcher
+        android:id="@+id/switcher_contrasenyes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="378dp">
+
+        <TextView
+            android:id="@+id/contrasenya_veure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/contrasenya_editar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword|textVisiblePassword"
+            android:text="Name"
+            android:textSize="18sp"/>
+
+    </ViewSwitcher>
+
+</android.support.constraint.ConstraintLayout>
