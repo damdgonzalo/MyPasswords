@@ -4,21 +4,27 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.daimajia.swipe.SwipeLayout;
+import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,38 +41,17 @@ public class fragment_aplicacions extends Fragment {
 
           bd = new DBHelper(getContext(), "MyPasswords", null, 1);
 
-          final ListView listview_apps  = (ListView) v.findViewById(R.id.listview_apps);
+          final RecyclerView listview_apps  = (RecyclerView) v.findViewById(R.id.listview_apps);
           ImageButton bt_afegir_app          = (ImageButton) v.findViewById(R.id.bt_afegir_app);
 
           aplicacions = bd.get_aplicacions();
           adapter = new adapter_llista_apps(aplicacions, getContext());
 
+          listview_apps.setLayoutManager(new LinearLayoutManager(getContext()));
+
           listview_apps.setAdapter(adapter);
 
      //-- canviar fragments ------------------------------------------------------------------------
-
-          listview_apps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-               @Override
-               public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Bundle args = new Bundle();
-                    args.putSerializable("app", aplicacions.get(i));
-
-                    fragment_credencials credencials = new fragment_credencials();
-                    credencials.setArguments(args);
-
-                    if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                         getFragmentManager().beginTransaction()
-                                 .replace(R.id.frame_credencials, credencials)
-                                 .commit();
-                    }
-                    else {
-                         getFragmentManager().beginTransaction()
-                                 .replace(R.id.frame_aplicacions, credencials)
-                                 .addToBackStack(null)
-                                 .commit();
-                    }
-               }
-          });
 
           bt_afegir_app.setOnClickListener(new View.OnClickListener() {
                @Override
@@ -167,7 +152,7 @@ public class fragment_aplicacions extends Fragment {
 
           public View getCustomView(int position, View convertView, ViewGroup parent) {
 
-               LayoutInflater inflater = getLayoutInflater();
+               LayoutInflater inflater = getActivity().getLayoutInflater();
                View v = inflater.inflate(R.layout.row_llista_apps, null);
 
                TextView nom = (TextView) v.findViewById(R.id.app_nom);
@@ -192,6 +177,120 @@ public class fragment_aplicacions extends Fragment {
           @Override
           public View getView(int position, View convertView, ViewGroup parent) {
                return getCustomView(position, convertView, parent);
+          }
+     }
+
+     public class adapter_llista_apps extends RecyclerSwipeAdapter<adapter_llista_apps.SimpleViewHolder> {
+
+//-- data ------------------------------------------------------------------------------------------
+
+          private List<Aplicacio> llista_apps = new ArrayList<>();
+
+          private Context context;
+
+
+//-- constructor -----------------------------------------------------------------------------------
+
+          public adapter_llista_apps(List<Aplicacio> llista_apps, Context context) {
+               this.llista_apps = llista_apps;
+               this.context = context;
+          }
+
+//-- métodos ---------------------------------------------------------------------------------------
+
+
+          @Override
+          public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+               View view;
+               view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_llista_apps, parent, false);
+
+               return new SimpleViewHolder(view);
+          }
+
+          @Override
+          public void onBindViewHolder(final SimpleViewHolder holder, final int position) {
+               holder.swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
+
+               holder.bt_borrar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                         mItemManger.removeShownLayouts(holder.swipeLayout);
+                         llista_apps.remove(position);
+                         notifyItemRemoved(position);
+                         notifyItemRangeChanged(position, llista_apps.size());
+                         mItemManger.closeAllItems();
+                    }
+               });
+
+
+               holder.app_linea.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                         Bundle args = new Bundle();
+                         args.putSerializable("app", llista_apps.get(position));
+
+                         fragment_credencials credencials = new fragment_credencials();
+                         credencials.setArguments(args);
+
+                         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                              getFragmentManager().beginTransaction()
+                                      .replace(R.id.frame_credencials, credencials)
+                                      .commit();
+                         }
+                         else {
+                              getFragmentManager().beginTransaction()
+                                      .replace(R.id.frame_aplicacions, credencials)
+                                      .addToBackStack(null)
+                                      .commit();
+                         }
+                    }
+               });
+
+               try {
+                    int id_icon;
+
+                    if (holder.app_nom.getText().toString().equals("WhatsApp")) id_icon = R.drawable.ic_whatsapp;
+                    else if (holder.app_nom.getText().toString().equals("Facebook")) id_icon = R.drawable.ic_no_app;
+                    else if (holder.app_nom.getText().toString().equals("Twitter")) id_icon = R.drawable.ic_twitter;
+                    else if (holder.app_nom.getText().toString().equals("Google")) id_icon = R.drawable.ic_no_app;
+                    else if (holder.app_nom.getText().toString().equals("Correu electrònic")) id_icon = R.drawable.ic_no_app;
+                    else if  (holder.app_nom.getText().toString().equals("OneDrive")) id_icon = R.drawable.ic_no_app;
+                    else if (holder.app_nom.getText().toString().equals("Compte de Firefox")) id_icon = R.drawable.ic_no_app;
+                    else id_icon = R.drawable.ic_no_app;
+
+                    holder.app_nom.setText(llista_apps.get(position).getNom_app());
+                    holder.app_icon.setImageDrawable(ContextCompat.getDrawable(context, id_icon));
+
+               } catch (IndexOutOfBoundsException | NullPointerException ignored) {}
+          }
+
+          //---------------------------------------------------------------------------------------------
+
+          public class SimpleViewHolder extends RecyclerView.ViewHolder {
+               SwipeLayout swipeLayout;
+               ImageView app_icon;
+               TextView app_nom;
+               ImageButton bt_borrar;
+               LinearLayout app_linea;
+
+               public SimpleViewHolder(View itemView) {
+                    super(itemView);
+                    swipeLayout    = (SwipeLayout) itemView.findViewById(R.id.swipe);
+                    app_icon       = (ImageView) itemView.findViewById(R.id.app_icon);
+                    app_nom        = (TextView) itemView.findViewById(R.id.app_nom);
+                    bt_borrar      = (ImageButton) itemView.findViewById(R.id.eliminar_linea_boton);
+                    app_linea      = (LinearLayout) itemView.findViewById(R.id.app_linea);
+               }
+          }
+
+          @Override
+          public int getItemCount() {
+               return llista_apps.size();
+          }
+
+          @Override
+          public int getSwipeLayoutResourceId(int position) {
+               return R.id.swipe;
           }
      }
 }
