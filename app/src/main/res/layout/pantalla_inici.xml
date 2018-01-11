@@ -54,8 +54,9 @@
             android:layout_height="wrap_content"
             android:text="He oblidat la contrasenya"
             android:textAlignment="textEnd"
+            android:textSize="18sp"
             tools:layout_editor_absoluteX="104dp"
-            tools:layout_editor_absoluteY="325dp"/>
+            tools:layout_editor_absoluteY="325dp" />
 
     </LinearLayout>
 
