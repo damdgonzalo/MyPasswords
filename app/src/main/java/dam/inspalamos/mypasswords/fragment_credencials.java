@@ -8,7 +8,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -30,7 +29,7 @@ public class fragment_credencials extends Fragment {
      ViewSwitcher vs_usuaris;
      ViewSwitcher vs_contrasenyes;
 
-     Button bt_guardar;
+     //Button bt_guardar;
 
      boolean editar_visible = true;
 
@@ -56,7 +55,7 @@ public class fragment_credencials extends Fragment {
 
           usuari_editar.setVisibility(View.GONE);
           contrasenya_editar.setVisibility(View.GONE);
-          bt_guardar.setVisibility(View.GONE);
+          //bt_guardar.setVisibility(View.GONE);
 
           try {
                aplicacio = (Aplicacio) getArguments().getSerializable("app");
@@ -71,7 +70,7 @@ public class fragment_credencials extends Fragment {
      //-- menú opcions -----------------------------------------------------------------------------
 
 
-          bt_guardar.setOnClickListener(new View.OnClickListener() {
+          /*bt_guardar.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
                     if (!editar_visible) {
@@ -86,7 +85,7 @@ public class fragment_credencials extends Fragment {
                          bt_guardar.setVisibility(View.GONE);
                     }
                }
-          });
+          });*/
 
           return v;
      }
@@ -130,7 +129,7 @@ public class fragment_credencials extends Fragment {
                               contrasenya_editar.setText(contrasenya_veure.getText().toString());
 
                               editar_visible = false;
-                              bt_guardar.setVisibility(View.VISIBLE);
+                              //bt_guardar.setVisibility(View.VISIBLE);
                               popup.dismiss(); //tenca el popup
                          }
                     }

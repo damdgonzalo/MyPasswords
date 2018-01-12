@@ -1,24 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:gravity="center_vertical|start">
+              android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/app_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+<com.daimajia.swipe.SwipeLayout xmlns:swipe="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/swipe"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                swipe:leftEdgeSwipeOffset="0dp"
+                                swipe:rightEdgeSwipeOffset="0dp">
 
-    <TextView
-        android:id="@+id/app_nom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="nom_app"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"/>
+    <LinearLayout
+        android:layout_width="130dp"
+        android:layout_height="match_parent"
+        android:background="#d82b00"
+        android:gravity="center"
+        android:tag="Bottom3"
+        android:weightSum="10">
+
+        <ImageButton
+            android:id="@+id/eliminar_linea_boton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#d82b00"/>
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  android:id="@+id/app_linea"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center_vertical|start">
+
+        <ImageView
+            android:id="@+id/app_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/app_nom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="nom_app"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+</com.daimajia.swipe.SwipeLayout>
 </LinearLayout>
+
+
