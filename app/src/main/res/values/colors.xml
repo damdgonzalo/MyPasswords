@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#303f9f</color>
     <color name="colorAccent">#FF4081</color>
     <color name="transparent">#00000000</color>
+    <color name="gris_fosc">#1a1a1a</color>
+    <color name="gris_clar">#a3a3a3</color>
+    <color name="blanc">#FFFFFF</color>
+    <color name="vermell">#d82b00</color>
 </resources>

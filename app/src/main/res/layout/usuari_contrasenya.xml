@@ -10,37 +10,50 @@
         android:id="@+id/imageView"
         android:layout_width="183dp"
         android:layout_height="202dp"
-        app:srcCompat="@drawable/ic_whatsapp_gran"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="70dp"/>
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nom_aplicacio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <LinearLayout
         android:id="@+id/fons_quadrat"
-        android:layout_width="315dp"
+        android:layout_width="0dp"
         android:layout_height="331dp"
+        android:layout_marginBottom="68dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="22dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="168dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
     </LinearLayout>
 
     <TextView
         android:id="@+id/nom_aplicacio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:layout_marginStart="23dp"
         android:text="Nom aplicació"
         android:textAllCaps="true"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="271dp"/>
+        app:layout_constraintBottom_toTopOf="@+id/switcher_usuaris"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        />
 
     <ViewSwitcher
         android:id="@+id/switcher_usuaris"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="324dp">
+        android:layout_marginBottom="129dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fons_quadrat"
+        app:layout_constraintStart_toStartOf="@+id/fons_quadrat"
+        >
 
         <TextView
             android:id="@+id/usuari_veure"
@@ -64,8 +77,10 @@
         android:id="@+id/switcher_contrasenyes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="378dp">
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/switcher_usuaris"
+        app:layout_constraintTop_toBottomOf="@+id/switcher_usuaris"
+        >
 
         <TextView
             android:id="@+id/contrasenya_veure"

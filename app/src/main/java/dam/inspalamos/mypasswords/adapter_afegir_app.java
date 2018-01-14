@@ -66,13 +66,10 @@ public class adapter_afegir_app extends BaseAdapter {
           int id_icon = 0;
 
           //l'icona canvia segons l'aplicació
-          if (nom.getText().toString().equals("WhatsApp")) id_icon = R.drawable.ic_whatsapp;
-          else if (nom.getText().toString().equals("Facebook")) id_icon = R.drawable.ic_no_app;
-          else if (nom.getText().toString().equals("Twitter")) id_icon = R.drawable.ic_twitter;
-          else if (nom.getText().toString().equals("Google")) id_icon = R.drawable.ic_no_app;
-          else if (nom.getText().toString().equals("Correu electrònic")) id_icon = R.drawable.ic_no_app;
-          else if  (nom.getText().toString().equals("OneDrive")) id_icon = R.drawable.ic_no_app;
-          else if (nom.getText().toString().equals("Compte de Firefox")) id_icon = R.drawable.ic_no_app;
+          if (nom.getText().toString().equals("WhatsApp")) id_icon = R.drawable.whatsapp_icon;
+          else if (nom.getText().toString().equals("Facebook")) id_icon = R.drawable.facebook_icon;
+          else if (nom.getText().toString().equals("Twitter")) id_icon = R.drawable.twitter_icon;
+          else if (nom.getText().toString().equals("Google")) id_icon = R.drawable.google_icon;
           else id_icon = R.drawable.ic_no_app;
 
           icon.setImageDrawable(ContextCompat.getDrawable(context, id_icon));

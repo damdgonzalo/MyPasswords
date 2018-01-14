@@ -45,14 +45,15 @@ public class fragment_aplicacions extends Fragment {
           bd = new DBHelper(getContext(), "MyPasswords", null, 1);
 
           final RecyclerView listview_apps  = (RecyclerView) v.findViewById(R.id.listview_apps);
-          ImageButton bt_afegir_app          = (ImageButton) v.findViewById(R.id.bt_afegir_app);
+          ImageButton bt_afegir_app         = (ImageButton) v.findViewById(R.id.bt_afegir_app);
 
           aplicacions = bd.get_aplicacions();
           adapter = new adapter_llista_apps(aplicacions, getContext());
 
           listview_apps.setLayoutManager(new LinearLayoutManager(getContext()));
-
           listview_apps.setAdapter(adapter);
+
+
 
      //-- canviar fragments ------------------------------------------------------------------------
 
@@ -88,8 +89,8 @@ public class fragment_aplicacions extends Fragment {
 
           //-----------------------------------------------------------------------------------
 
-          String[] apps_default = {"Tria una aplicació", "WhatsApp", "Facebook", "Twitter", "Google", "Twitch", "Pinterest"};
-          Integer[] icones = {0, R.drawable.ic_whatsapp, R.drawable.ic_no_app, R.drawable.ic_twitter, R.drawable.ic_no_app, R.drawable.ic_no_app};
+          String[] apps_default = {"Tria una aplicació", "WhatsApp", "Facebook", "Twitter", "Google", "Youtube"};
+          Integer[] icones = {0, R.drawable.whatsapp_icon, R.drawable.facebook_icon, R.drawable.twitter_icon, R.drawable.google_icon, R.drawable.youtube_icon};
 
           triar_app.setAdapter(new AdapterSpinner(getContext(), R.layout.row_llista_apps, apps_default, icones));
 
@@ -156,14 +157,15 @@ public class fragment_aplicacions extends Fragment {
           public View getCustomView(int position, View convertView, ViewGroup parent) {
 
                LayoutInflater inflater = getActivity().getLayoutInflater();
-               View v = inflater.inflate(R.layout.row_llista_apps, null);
+               View v = inflater.inflate(R.layout.row_afegir_app, null);
 
                TextView nom = (TextView) v.findViewById(R.id.app_nom);
                nom.setText(apps_default[position]);
                nom.setTextSize(15);
 
                ImageView icon = (ImageView) v.findViewById(R.id.app_icon);
-               icon.setImageResource(icones[position]);
+               //icon.setImageResource(icones[position]);
+               icon.setImageDrawable(ContextCompat.getDrawable(getContext(), icones[position]));
 
                if (position==0) {
                     icon.setVisibility(View.GONE); //el primer item no te icona
@@ -256,19 +258,19 @@ public class fragment_aplicacions extends Fragment {
                     }
                });
 
+               holder.app_nom.setText(llista_apps.get(position).getNom_app());
+               holder.app_usuari.setText(llista_apps.get(position).getUsuari());
+
                try {
                     int id_icon;
 
-                    if (holder.app_nom.getText().toString().equals("WhatsApp")) id_icon = R.drawable.ic_whatsapp;
-                    else if (holder.app_nom.getText().toString().equals("Facebook")) id_icon = R.drawable.ic_no_app;
-                    else if (holder.app_nom.getText().toString().equals("Twitter")) id_icon = R.drawable.ic_twitter;
-                    else if (holder.app_nom.getText().toString().equals("Google")) id_icon = R.drawable.ic_no_app;
-                    else if (holder.app_nom.getText().toString().equals("Correu electrònic")) id_icon = R.drawable.ic_no_app;
-                    else if  (holder.app_nom.getText().toString().equals("OneDrive")) id_icon = R.drawable.ic_no_app;
-                    else if (holder.app_nom.getText().toString().equals("Compte de Firefox")) id_icon = R.drawable.ic_no_app;
+                    if (holder.app_nom.getText().toString().equals("WhatsApp")) id_icon = R.drawable.whatsapp_icon;
+                    else if (holder.app_nom.getText().toString().equals("Facebook")) id_icon = R.drawable.facebook_icon;
+                    else if (holder.app_nom.getText().toString().equals("Twitter")) id_icon = R.drawable.twitter_icon;
+                    else if (holder.app_nom.getText().toString().equals("Google")) id_icon = R.drawable.google_icon;
+                    else if (holder.app_nom.getText().toString().equals("Youtube")) id_icon = R.drawable.youtube_icon;
                     else id_icon = R.drawable.ic_no_app;
 
-                    holder.app_nom.setText(llista_apps.get(position).getNom_app());
                     holder.app_icon.setImageDrawable(ContextCompat.getDrawable(context, id_icon));
 
                } catch (IndexOutOfBoundsException | NullPointerException ignored) {}
@@ -280,6 +282,7 @@ public class fragment_aplicacions extends Fragment {
                SwipeLayout swipeLayout;
                ImageView app_icon;
                TextView app_nom;
+               TextView app_usuari;
                ImageButton bt_borrar;
                LinearLayout app_linea;
 
@@ -288,6 +291,7 @@ public class fragment_aplicacions extends Fragment {
                     swipeLayout    = (SwipeLayout) itemView.findViewById(R.id.swipe);
                     app_icon       = (ImageView) itemView.findViewById(R.id.app_icon);
                     app_nom        = (TextView) itemView.findViewById(R.id.app_nom);
+                    app_usuari     = (TextView) itemView.findViewById(R.id.app_usuari);
                     bt_borrar      = (ImageButton) itemView.findViewById(R.id.eliminar_linea_boton);
                     app_linea      = (LinearLayout) itemView.findViewById(R.id.app_linea);
                }
