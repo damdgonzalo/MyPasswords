@@ -105,9 +105,6 @@ public class MainActivity extends AppCompatActivity {
                               Intent intent = new Intent(MainActivity.this, MyPasswords.class);
                               startActivity(intent);
                          }
-                         else {
-                              Yoyo.with(Techniques.Shake)
-                         }
                     }
                }
           });
