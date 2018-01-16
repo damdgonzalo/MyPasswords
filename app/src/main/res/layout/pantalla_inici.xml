@@ -25,7 +25,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Usuari"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+            android:textColor="@color/gris_fosc"
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/contrasenya1"
@@ -33,8 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
+            android:hint="Contrasenya"
             android:inputType="textPassword|textVisiblePassword"
-            android:text="Name"
+            android:textColor="@color/gris_fosc"
             app:layout_constraintTop_toBottomOf="@+id/contrasenya2"
             tools:layout_editor_absoluteX="72dp"/>
 
@@ -43,8 +46,9 @@
             android:layout_width="match_parent"
             android:layout_height="42dp"
             android:ems="10"
+            android:hint="Repetir contrasenya"
             android:inputType="textPassword|textVisiblePassword"
-            android:text="Name"
+            android:textColor="@color/gris_fosc"
             tools:layout_editor_absoluteX="72dp"
             tools:layout_editor_absoluteY="212dp"/>
 
@@ -52,11 +56,14 @@
             android:id="@+id/contrasenya_oblidada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="He oblidat la contrasenya"
             android:textAlignment="textEnd"
-            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:textColor="@color/gris_clar"
+            android:textSize="14sp"
             tools:layout_editor_absoluteX="104dp"
-            tools:layout_editor_absoluteY="325dp" />
+            tools:layout_editor_absoluteY="325dp"/>
 
     </LinearLayout>
 
@@ -64,18 +71,19 @@
         android:id="@+id/titol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="61dp"
-        android:text="TextView"
+        android:layout_marginBottom="32dp"
+        android:text="MyPasswords???"
+        android:textColor="@color/gris_fosc"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
         android:id="@+id/bt_entrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="8dp"
         android:text="Entrar"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"

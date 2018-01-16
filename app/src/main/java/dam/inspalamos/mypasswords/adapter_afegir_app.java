@@ -54,7 +54,7 @@ public class adapter_afegir_app extends BaseAdapter {
           //ViewHolder holder = null;
           // if (convertView == null) { ...
           // holder = new ViewHolder();
-          convertView = inflater.inflate(R.layout.row_llista_apps,null);
+          convertView = inflater.inflate(R.layout.row_afegir_app,null);
 
           ImageView icon = convertView.findViewById(R.id.app_icon);
           TextView nom = convertView.findViewById(R.id.app_nom);
@@ -66,10 +66,13 @@ public class adapter_afegir_app extends BaseAdapter {
           int id_icon = 0;
 
           //l'icona canvia segons l'aplicació
-          if (nom.getText().toString().equals("WhatsApp")) id_icon = R.drawable.whatsapp_icon;
-          else if (nom.getText().toString().equals("Facebook")) id_icon = R.drawable.facebook_icon;
-          else if (nom.getText().toString().equals("Twitter")) id_icon = R.drawable.twitter_icon;
-          else if (nom.getText().toString().equals("Google")) id_icon = R.drawable.google_icon;
+          if (nom.getText().toString().equals("WhatsApp")) id_icon = R.drawable.app_whatsapp_icon;
+          else if (nom.getText().toString().equals("Facebook")) id_icon = R.drawable.app_facebook_icon;
+          else if (nom.getText().toString().equals("Twitter")) id_icon = R.drawable.app_twitter_icon;
+          else if (nom.getText().toString().equals("Google")) id_icon = R.drawable.app_google_icon;
+          else if (nom.getText().toString().equals("Twitch")) id_icon = R.drawable.app_twitch_icon;
+          else if (nom.getText().toString().equals("Youtube")) id_icon = R.drawable.app_youtube_icon;
+          else if (nom.getText().toString().equals("Instagram")) id_icon = R.drawable.app_instagram_icon;
           else id_icon = R.drawable.ic_no_app;
 
           icon.setImageDrawable(ContextCompat.getDrawable(context, id_icon));

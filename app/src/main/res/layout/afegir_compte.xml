@@ -3,45 +3,39 @@
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:id="@+id/constraintLayout"
-                                             android:padding="20dp"
-                                             android:background="@android:drawable/dialog_holo_light_frame"
                                              android:layout_width="wrap_content"
-                                             android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="AFEGIR COMPTE NOU"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+                                             android:layout_height="wrap_content"
+                                             android:padding="8dp"
+                                             tools:layout_editor_absoluteY="25dp">
 
     <Spinner
         android:id="@+id/triar_app"
-        android:layout_width="212dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+        android:layout_width="277dp"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:spinnerMode="dropdown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/triar_app">
+        app:layout_constraintEnd_toEndOf="@+id/triar_app"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/triar_app"
+        app:layout_constraintTop_toBottomOf="@+id/custom_app">
 
         <EditText
             android:id="@+id/usuari"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Correu electrónic"
-            android:inputType="textPersonName"/>
+            android:hint="Usuari"
+            android:inputType="textPersonName"
+            android:textColor="@color/gris_fosc"/>
 
         <EditText
             android:id="@+id/contrasenya1"
@@ -49,25 +43,29 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Contrasenya"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+            android:password="true"
+            android:textColor="@color/gris_fosc"/>
 
         <EditText
             android:id="@+id/contrasenya2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Contrasenya"
-            android:inputType="textPersonName"/>
+            android:hint="Repetir contrasenya"
+            android:inputType="textPersonName"
+            android:password="true"
+            android:textColor="@color/gris_fosc"/>
     </LinearLayout>
 
     <Button
         android:id="@+id/bt_guardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="36dp"
         android:text="AFEGIR"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="@+id/missatge_error"/>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
 
     <TextView
         android:id="@+id/missatge_error"
@@ -76,7 +74,24 @@
         android:layout_marginTop="8dp"
         android:text="Usuari o contrasenya incorrectes."
         android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
+
+    <EditText
+        android:id="@+id/custom_app"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Nom de l'aplicació"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:textColor="@color/gris_fosc"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/triar_app"
+        app:layout_constraintStart_toStartOf="@+id/triar_app"
+        app:layout_constraintTop_toBottomOf="@+id/triar_app"/>
 
 </android.support.constraint.ConstraintLayout>

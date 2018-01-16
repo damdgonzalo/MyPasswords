@@ -4,23 +4,33 @@
               android:id="@+id/app_linea"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:background="#FFFFFF"
-              android:gravity="center_vertical|start">
+              android:background="#FFFFFF">
 
     <ImageView
         android:id="@+id/app_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_width="75dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:text="TextView"
+        android:visibility="visible"
+        app:srcCompat="@drawable/app_whatsapp_icon"/>
 
     <TextView
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:id="@+id/app_nom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="nom_app"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"/>
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:text="Nom aplicació"
+        android:textColor="@color/gris_fosc"
+        android:textSize="20sp"/>
 </LinearLayout>

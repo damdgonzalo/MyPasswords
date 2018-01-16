@@ -13,6 +13,7 @@
                                     swipe:rightEdgeSwipeOffset="0dp">
 
         <LinearLayout
+            android:id="@+id/eliminar_app"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@color/blanc"
@@ -20,10 +21,9 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/eliminar_linea_boton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/basura_icon"
+                app:srcCompat="@drawable/basura_icon"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
                 android:background="@color/blanc"/>
@@ -56,7 +56,7 @@
                 android:scaleType="fitCenter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/whatsapp_icon"/>
+                swipe:srcCompat="@drawable/app_whatsapp_icon"/>
 
             <LinearLayout
                 android:id="@+id/linearLayout"

@@ -2,102 +2,178 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools"
+                                             android:id="@+id/constraintLayout"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
                                              tools:layout_editor_absoluteY="25dp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="183dp"
-        android:layout_height="202dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/nom_aplicacio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <LinearLayout
-        android:id="@+id/fons_quadrat"
-        android:layout_width="0dp"
-        android:layout_height="331dp"
-        android:layout_marginBottom="68dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginStart="22dp"
-        android:orientation="vertical"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/contenidor"
+        android:layout_width="match_parent"
+        android:layout_height="354dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        >
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/nom_aplicacio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:layout_marginStart="23dp"
-        android:text="Nom aplicació"
-        android:textAllCaps="true"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/switcher_usuaris"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        />
+        <ImageView
+            android:id="@+id/marc_app"
+            android:layout_width="0dp"
+            android:layout_height="270dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/marc_app"/>
 
-    <ViewSwitcher
-        android:id="@+id/switcher_usuaris"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="129dp"
-        android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/fons_quadrat"
-        app:layout_constraintStart_toStartOf="@+id/fons_quadrat"
-        >
+        <ImageView
+            android:id="@+id/app_icon"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/app_nom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/app_whatsapp_icon"/>
+
+        <TextView
+            android:id="@+id/app_nom"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="Nom aplicació"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/ic_usuari"
+            app:layout_constraintEnd_toEndOf="@+id/marc_app"
+            app:layout_constraintStart_toStartOf="@+id/marc_app"/>
+
+        <ImageButton
+            android:id="@+id/bt_edit"
+            android:layout_width="35dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/transparent"
+            android:tint="@color/gris_fosc"
+            app:layout_constraintBottom_toBottomOf="@+id/marc_app"
+            app:layout_constraintEnd_toEndOf="@+id/marc_app"
+            app:srcCompat="@drawable/ic_edit"/>
 
         <TextView
             android:id="@+id/usuari_veure"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="18sp"/>
-
-        <EditText
-            android:id="@+id/usuari_editar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:textSize="18sp"/>
-
-    </ViewSwitcher>
-
-    <ViewSwitcher
-        android:id="@+id/switcher_contrasenyes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/switcher_usuaris"
-        app:layout_constraintTop_toBottomOf="@+id/switcher_usuaris"
-        >
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:text="usuarilmao"
+            android:textColor="@color/gris_fosc"
+            android:textSize="18sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_usuari"
+            app:layout_constraintStart_toEndOf="@+id/ic_usuari"
+            app:layout_constraintTop_toTopOf="@+id/ic_usuari"/>
 
         <TextView
             android:id="@+id/contrasenya_veure"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="18sp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:inputType="text|textPassword"
+            android:maxLines="1"
+            android:text="plscontrasenya hola"
+            android:textColor="@color/gris_fosc"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_contrasenya"
+            app:layout_constraintStart_toEndOf="@+id/ic_contrasenya"
+            app:layout_constraintTop_toTopOf="@+id/ic_contrasenya"/>
+
+        <ImageView
+            android:id="@+id/ic_usuari"
+            android:layout_width="35dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/ic_contrasenya"
+            app:layout_constraintStart_toStartOf="@+id/marc_app"
+            app:srcCompat="@drawable/ic_usuari"/>
+
+        <ImageView
+            android:id="@+id/ic_contrasenya"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/bt_edit"
+            app:layout_constraintEnd_toEndOf="@+id/ic_usuari"
+            app:layout_constraintStart_toStartOf="@+id/ic_usuari"
+            app:srcCompat="@drawable/ic_contrasenya"/>
+
+        <ImageButton
+            android:id="@+id/toggle_contrasenya"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:backgroundTint="@color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/contrasenya_editar"
+            app:layout_constraintStart_toEndOf="@+id/contrasenya_editar"
+            app:layout_constraintTop_toTopOf="@+id/contrasenya_editar"
+            app:srcCompat="@drawable/ic_veure_contrasenya"/>
+
+        <EditText
+            android:id="@+id/usuari_editar"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:hint="Usuari"
+            android:inputType="textPersonName"
+            android:singleLine="true"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/usuari_veure"
+            app:layout_constraintStart_toEndOf="@+id/ic_usuari"/>
 
         <EditText
             android:id="@+id/contrasenya_editar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
             android:ems="10"
-            android:inputType="textPassword|textVisiblePassword"
-            android:text="Name"
-            android:textSize="18sp"/>
+            android:gravity="center_vertical"
+            android:hint="Contrasenya"
+            android:inputType="textPersonName"
+            android:singleLine="true"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/contrasenya_veure"
+            app:layout_constraintStart_toEndOf="@+id/ic_contrasenya"/>
 
-    </ViewSwitcher>
+        <ImageButton
+            android:id="@+id/bt_cancelar"
+            android:layout_width="35dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/bt_edit"
+            app:layout_constraintEnd_toStartOf="@+id/bt_edit"
+            app:layout_constraintTop_toTopOf="@+id/bt_edit"
+            app:srcCompat="@drawable/ic_cancelar"/>
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

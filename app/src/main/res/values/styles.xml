@@ -8,4 +8,55 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <declare-styleable name="marc">
+        <attr name="color_marc" format="color"/>
+    </declare-styleable>
+
+    <style name="FacebookTheme">
+        <item name="color_marc">#314a7e</item>
+    </style>
+
+    <style name="GoogleTheme">
+        <item name="color_marc">#dc4335</item>
+    </style>
+
+    <style name="InstagramTheme">
+        <item name="color_marc">#4060a5</item>
+    </style>
+
+    <style name="SnapchatTheme">
+        <item name="color_marc">#faf707</item>
+    </style>
+
+    <style name="TwitchTheme">
+        <item name="color_marc">#65459b</item>
+    </style>
+
+    <style name="TwitterTheme">
+        <item name="color_marc">#339dc3</item>
+    </style>
+
+    <style name="WhatsAppTheme">
+        <item name="color_marc">#4cad3f</item>
+    </style>
+
+    <style name="YoutubeTheme">
+        <item name="color_marc">#e52d27</item>
+    </style>
+
+    <style name="OtherTheme">
+        <item name="color_marc">#a3a3a3</item>
+    </style>
+
 </resources>
+
+
+    <!-- /*facebook: #314a7e
+    * google: #dc4335
+    * instagram: #4060a5
+    * snapchat: #faf707
+    * twitch: #65459b
+    * twitter: #339dc3
+    * whatsapp: #4cad3f
+    * youtube: #e52d27
+    */-->
