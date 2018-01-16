@@ -154,7 +154,7 @@ public class fragment_aplicacions extends Fragment {
 
                               try {
                                    //mira si s'ha triat una app predeterminada, una altre, o cap
-                                   if (aplicacio_triada.equals("Altre")) {
+                                   if (aplicacio_triada.equals("Altre") && !altre_app.getText().toString().equals("")) {
                                         app = new Aplicacio(altre_app.getText().toString(), str_usuari, str_contrasenya1);
                                    }
                                    else if (aplicacio_triada.equals("Tria una aplicació")) {

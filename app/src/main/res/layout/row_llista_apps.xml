@@ -59,7 +59,7 @@
                 swipe:srcCompat="@drawable/app_whatsapp_icon"/>
 
             <LinearLayout
-                android:id="@+id/linearLayout"
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
