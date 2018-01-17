@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
           shared_preferences = PreferenceManager.getDefaultSharedPreferences(this);
           final boolean es_primera_vegada = shared_preferences.getBoolean("primera_vegada", true);
 
+          usuari                   = (EditText) findViewById(R.id.usuari);
           contrasenya1             = (EditText) findViewById(R.id.contrasenya1);
           contrasenya2             = (EditText) findViewById(R.id.contrasenya2);
           contrasenya_oblidada     = (TextView) findViewById(R.id.contrasenya_oblidada);
@@ -41,9 +45,12 @@ public class MainActivity extends AppCompatActivity {
           if (es_primera_vegada) {
                usuari.setVisibility(VISIBLE); //usuari per recuperar la contrasenya
                contrasenya2.setVisibility(VISIBLE);
+               contrasenya_oblidada.setVisibility(GONE);
           }
 
           else {
+               contrasenya_oblidada.setVisibility(VISIBLE);
+               findViewById(R.id.ic_usuari).setVisibility(GONE);
                usuari.setVisibility(GONE);
                contrasenya2.setVisibility(GONE);
           }
@@ -56,14 +63,14 @@ public class MainActivity extends AppCompatActivity {
                               String contrasenya_recuperada = shared_preferences.getString("master_password", "");
                               String usuari_enviar = shared_preferences.getString("usuari", "");
 
-                              GMailSender sender = new GMailSender("damdgonzalo@gmail.com", "DD32843Ph");
+                              GMailSender sender = new GMailSender("usuari@gmail.com", "contrasenya");
 
                               sender.sendMail("Recuperació contrasenya",
                                               "La teva contrasenya és: " + contrasenya_recuperada,
                                               "damdgonzalo@gmail.com",
                                               usuari_enviar);
 
-                              Toast.makeText(getApplicationContext(), "Correu enviat correctament.", Toast.LENGTH_SHORT).show();
+                              Toast.makeText(getApplicationContext(), "S'ha enviat un correu al teu compte.", Toast.LENGTH_SHORT).show();
                          } catch (Exception e) {
                               Toast.makeText(getApplicationContext(), "No s'ha pogut enviar el correu.", Toast.LENGTH_SHORT).show();
                          }
@@ -86,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                               editor.apply();
 
                               //obre la llista d'aplicacions
-                              Intent intent = new Intent(MainActivity.this, MyPasswords.class);
+                              Intent intent = new Intent(MainActivity.this, MyPasswords.class); //no afegeix la activitat principal al backstack
                               startActivity(intent);
                          }
                     }
@@ -99,8 +106,22 @@ public class MainActivity extends AppCompatActivity {
                               Intent intent = new Intent(MainActivity.this, MyPasswords.class);
                               startActivity(intent);
                          }
+                         else {
+                              //YoYo.with(Techniques.Shake).onEnd(animation-> contrasenya1.setText("")).playOn(contrasenya1);
+                              contrasenya1.setText("");
+                              YoYo.with(Techniques.Shake).duration(100).playOn(contrasenya1);
+                         }
                     }
                }
           });
+     }
+
+     @Override
+     public void onRestart() {
+          super.onRestart();
+          contrasenya_oblidada.setVisibility(VISIBLE);
+          findViewById(R.id.ic_usuari).setVisibility(GONE);
+          usuari.setVisibility(GONE);
+          contrasenya2.setVisibility(GONE);
      }
 }

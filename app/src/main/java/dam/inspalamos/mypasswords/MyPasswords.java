@@ -1,8 +1,8 @@
 package dam.inspalamos.mypasswords;
 
 import android.content.res.Configuration;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class MyPasswords extends AppCompatActivity {
 
@@ -40,6 +40,18 @@ public class MyPasswords extends AppCompatActivity {
                             .replace(R.id.frame_aplicacions, new fragment_aplicacions())
                             .commit();
                }
+          }
+     }
+
+     @Override
+     public void onBackPressed() {
+          //per tal que no torni sempre a la pantalla principal quan es prem [ENRERE] desde la llista d'apps
+          if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+               //si està al detall d'una app, torna a la llista
+               getSupportFragmentManager().popBackStack();
+          }
+          else { //sino, surt de l'aplicació
+               moveTaskToBack(true);
           }
      }
 }

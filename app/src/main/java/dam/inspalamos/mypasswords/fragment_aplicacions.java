@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,15 +52,15 @@ public class fragment_aplicacions extends Fragment {
      public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
           view = inflater.inflate(R.layout.llista_aplicacions, container, false);
 
-          bd = new DBHelper(getContext(), "MyPasswords", null, 1);
-
           final RecyclerView listview_apps  = (RecyclerView) view.findViewById(R.id.listview_apps);
           ImageButton bt_afegir_app         = (ImageButton) view.findViewById(R.id.bt_afegir_app);
 
           try {
+               bd = new DBHelper(getContext(), "MyPasswords", null, 1);
+
                aplicacions = bd.get_aplicacions();
                adapter = new adapter_llista_apps(aplicacions, getContext());
-          } catch (RuntimeException ignored) {
+          } catch (Exception ignored) {
                //No hi ha cap aplicació al compte
           }
 
@@ -90,7 +91,7 @@ public class fragment_aplicacions extends Fragment {
 
           //----------------------------------------------------------------------------------------
 
-          triar_app            = (Spinner) v.findViewById(R.id.triar_app);
+          triar_app           = (Spinner) v.findViewById(R.id.triar_app);
 
           altre_app           = (EditText) v.findViewById(R.id.custom_app);
 
@@ -120,8 +121,7 @@ public class fragment_aplicacions extends Fragment {
           triar_app.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                @Override
                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    if (triar_app.getSelectedItem().equals("Altre")) {
-                         triar_app.setSelection(triar_app.getAdapter().getCount()-1);
+                    if (triar_app.getSelectedItem().toString().equals("Altre")) {
                          altre_app.setVisibility(VISIBLE);
                     }
                     else {
@@ -150,25 +150,25 @@ public class fragment_aplicacions extends Fragment {
                     if (!str_usuari.equals("") && !str_contrasenya1.equals("") && !str_contrasenya2.equals("")) {
 
                          if (str_contrasenya1.equals(str_contrasenya2)) {
-                              Aplicacio app;
-
+                              Aplicacio nova_app;
+                              Log.i("APP TRIADA", aplicacio_triada);
                               try {
                                    //mira si s'ha triat una app predeterminada, una altre, o cap
                                    if (aplicacio_triada.equals("Altre")) {
-                                        app = new Aplicacio(altre_app.getText().toString(), str_usuari, str_contrasenya1);
+                                        if (!altre_app.getText().toString().equals("")) nova_app = new Aplicacio(altre_app.getText().toString(), str_usuari, str_contrasenya1);
+                                        else throw  new NullPointerException();
                                    }
                                    else if (aplicacio_triada.equals("Tria una aplicació")) {
                                         throw new NullPointerException();
                                    }
                                    else {
-                                        altre_app.setText(aplicacio_triada);
-                                        app = new Aplicacio(aplicacio_triada, str_usuari, str_contrasenya1);
+                                        nova_app = new Aplicacio(aplicacio_triada, str_usuari, str_contrasenya1);
                                    }
 
                                    //afegeix l'aplicació a la base de dades
-                                   bd.afegir_compte(app.getNom_app(), str_usuari, str_contrasenya1);
+                                   bd.afegir_compte(nova_app);
 
-                                   aplicacions.add(app);
+                                   aplicacions.add(nova_app);
                                    adapter.notifyItemInserted(adapter.getItemCount());
                                    dialog.dismiss(); //tenca el popup
 
@@ -178,6 +178,7 @@ public class fragment_aplicacions extends Fragment {
                                    missatge_incorrecte.setVisibility(VISIBLE);
                               } catch (NullPointerException e) {
                                    //no s'ha triat cap aplicació
+                                   e.printStackTrace();
                                    missatge_incorrecte.setText("Tria una aplicació");
                                    missatge_incorrecte.setVisibility(VISIBLE);
                               }
@@ -218,7 +219,6 @@ public class fragment_aplicacions extends Fragment {
 
                TextView nom = (TextView) v.findViewById(R.id.app_nom);
                nom.setText(apps_default[position]);
-               nom.setTextSize(15);
 
                ImageView icon = (ImageView) v.findViewById(R.id.app_icon);
                icon.setImageResource(icones[position]);
@@ -248,14 +248,14 @@ public class fragment_aplicacions extends Fragment {
           }
      }
 
+//--------------------------------------------------------------------------------------------------
+
      public class adapter_llista_apps extends RecyclerSwipeAdapter<adapter_llista_apps.SimpleViewHolder> {
 
      //-- data -------------------------------------------------------------------------------------
 
           private List<Aplicacio> llista_apps = new ArrayList<>();
-
           private Context context;
-
 
      //-- constructor ------------------------------------------------------------------------------
 
@@ -277,18 +277,10 @@ public class fragment_aplicacions extends Fragment {
           @Override
           public void onBindViewHolder(final SimpleViewHolder holder, final int position) {
                holder.swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
-               /*holder.swipeLayout.addSwipeListener(new SimpleSwipeListener() {
-                    @Override
-                    public void onOpen(SwipeLayout layout) {
-                         YoYo.with(Techniques.Tada).duration(500).playOn(layout.findViewById(R.id.eliminar_linea_boton));
-                    }
-
-               });*/
-
                holder.eliminar_app.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                         bd.eliminar_compte(holder.app_nom.getText().toString(), holder.app_usuari.getText().toString());
+                         bd.eliminar_compte(llista_apps.get(position));
                          mItemManger.removeShownLayouts(holder.swipeLayout);
                          llista_apps.remove(position);
                          notifyItemRemoved(position);
@@ -342,7 +334,7 @@ public class fragment_aplicacions extends Fragment {
                } catch (IndexOutOfBoundsException | NullPointerException ignored) {}
           }
 
-          //---------------------------------------------------------------------------------------------
+          //----------------------------------------------------------------------------------------
 
           public class SimpleViewHolder extends RecyclerView.ViewHolder {
                SwipeLayout swipeLayout;

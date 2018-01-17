@@ -50,31 +50,33 @@ public class fragment_credencials extends Fragment {
 
      @Override
      public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-          bd = new DBHelper(getContext(), "MyPasswords", null, 1);
-          v = inflater.inflate(R.layout.usuari_contrasenya, container, false);
-
-
-          app_icon            = (ImageView) v.findViewById(R.id.app_icon);
-          marc_app            = (ImageView) v.findViewById(R.id.marc_app);
-
-          app_nom             = (TextView) v.findViewById(R.id.app_nom);
-          usuari_veure        = (TextView) v.findViewById(R.id.usuari_veure);
-          contrasenya_veure   = (TextView) v.findViewById(R.id.contrasenya_veure);
-          usuari_editar       = (EditText) v.findViewById(R.id.usuari_editar);
-          contrasenya_editar  = (EditText) v.findViewById(R.id.contrasenya_editar);
-
-          toggle_contrasenya  = (ImageButton) v.findViewById(R.id.toggle_contrasenya);
-          bt_edit             = (ImageButton) v.findViewById(R.id.bt_edit);
-          bt_cancelar         = (ImageButton) v.findViewById(R.id.bt_cancelar);
-
-     //-- estat inicial ----------------------------------------------------------------------------
-
-          usuari_editar.setVisibility(View.INVISIBLE);
-          contrasenya_editar.setVisibility(View.INVISIBLE);
-          bt_cancelar.setVisibility(View.GONE); //es veu quan s'està editant
+          try {
+               bd = new DBHelper(getContext(), "MyPasswords", null, 1);
+          } catch (Exception ignored) {}
 
           try {
+               v = inflater.inflate(R.layout.usuari_contrasenya, container, false);
                aplicacio = (Aplicacio) getArguments().getSerializable("app");
+
+
+               app_icon            = (ImageView) v.findViewById(R.id.app_icon);
+               marc_app            = (ImageView) v.findViewById(R.id.marc_app);
+
+               app_nom             = (TextView) v.findViewById(R.id.app_nom);
+               usuari_veure        = (TextView) v.findViewById(R.id.usuari_veure);
+               contrasenya_veure   = (TextView) v.findViewById(R.id.contrasenya_veure);
+               usuari_editar       = (EditText) v.findViewById(R.id.usuari_editar);
+               contrasenya_editar  = (EditText) v.findViewById(R.id.contrasenya_editar);
+
+               toggle_contrasenya  = (ImageButton) v.findViewById(R.id.toggle_contrasenya);
+               bt_edit             = (ImageButton) v.findViewById(R.id.bt_edit);
+               bt_cancelar         = (ImageButton) v.findViewById(R.id.bt_cancelar);
+
+          //-- estat inicial -----------------------------------------------------------------------
+
+               usuari_editar.setVisibility(View.INVISIBLE);
+               contrasenya_editar.setVisibility(View.INVISIBLE);
+               bt_cancelar.setVisibility(View.GONE); //es veu quan s'està editant
 
                app_nom.setText(aplicacio.getNom_app());
                usuari_veure.setText(aplicacio.getUsuari());
@@ -83,28 +85,29 @@ public class fragment_credencials extends Fragment {
                posar_icon();
                posar_color_marc();
 
+          //----------------------------------------------------------------------------------------
+
+               //editar credencials
+               bt_edit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                         if (!esta_editant) editar_credencials();
+                         else guardar_crendencials();
+                    }
+               });
+
+               //mostra/oculta la contrasenya
+               toggle_contrasenya.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                         mostrar_ocultar_contrasenya();
+                    }
+               });
+
           } catch (NullPointerException ignored) {
                //s'ha iniciat en horitzontal i el bundle està buit
+               v = inflater.inflate(R.layout.blank_xml, container, false);
           }
-
-     //---------------------------------------------------------------------------------------------
-
-          //editar credencials
-          bt_edit.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View view) {
-                    if (!esta_editant) editar_credencials();
-                    else guardar_crendencials();
-               }
-          });
-
-          //mostra/oculta la contrasenya
-          toggle_contrasenya.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View view) {
-                    mostrar_ocultar_contrasenya();
-               }
-          });
 
           return v;
      }
@@ -218,7 +221,5 @@ public class fragment_credencials extends Fragment {
      }
 
 //--------------------------------------------------------------------------------------------------
-
-
 
 }

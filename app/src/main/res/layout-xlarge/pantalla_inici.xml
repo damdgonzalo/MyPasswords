@@ -10,20 +10,18 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="444dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/ic_contrasenya"
-            android:layout_width="44dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="@+id/ic_usuari"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,10 +30,8 @@
 
         <ImageView
             android:id="@+id/ic_usuari"
-            android:layout_width="44dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -45,12 +41,12 @@
             android:id="@+id/usuari"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="24dp"
             android:ems="10"
             android:hint="Usuari"
             android:inputType="textPersonName"
             android:textColor="@color/gris_fosc"
-            android:textSize="18sp"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@+id/ic_usuari"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ic_usuari"
@@ -60,27 +56,29 @@
             android:id="@+id/contrasenya1"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="24dp"
             android:ems="10"
             android:hint="Contrasenya"
             android:inputType="textPassword|textVisiblePassword"
             android:textColor="@color/gris_fosc"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@+id/ic_contrasenya"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ic_contrasenya"
-            app:layout_constraintTop_toBottomOf="@+id/usuari"/>
+            app:layout_constraintTop_toTopOf="@+id/ic_contrasenya"/>
 
         <EditText
             android:id="@+id/contrasenya2"
             android:layout_width="wrap_content"
-            android:layout_height="42dp"
+            android:layout_height="65dp"
             android:ems="10"
             android:hint="Repetir contrasenya"
             android:inputType="textPassword|textVisiblePassword"
             android:textColor="@color/gris_fosc"
+            android:textSize="30sp"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/contrasenya1"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/contrasenya1"
             app:layout_constraintTop_toBottomOf="@+id/contrasenya1"/>
 
@@ -89,12 +87,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             android:text="He oblidat la contrasenya"
             android:textAlignment="textEnd"
             android:textAllCaps="false"
             android:textColor="@color/gris_clar"
-            android:textSize="14sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/contrasenya2"/>
 
@@ -103,8 +101,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             android:text="Entrar"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/contrasenya_oblidada"/>
 
@@ -112,17 +111,16 @@
 
     <ImageView
         android:id="@+id/titol"
-        android:layout_width="235dp"
-        android:layout_height="78dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="320dp"
+        android:layout_height="122dp"
+        android:layout_marginBottom="36dp"
         android:scaleType="fitCenter"
         android:src="@drawable/logo"
         android:textColor="@color/gris_fosc"
-        android:textSize="24sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

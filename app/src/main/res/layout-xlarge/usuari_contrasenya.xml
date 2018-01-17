@@ -9,8 +9,8 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/contenidor"
-        android:layout_width="match_parent"
-        android:layout_height="354dp"
+        android:layout_width="638dp"
+        android:layout_height="470dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +19,7 @@
         <ImageView
             android:id="@+id/marc_app"
             android:layout_width="0dp"
-            android:layout_height="270dp"
+            android:layout_height="352dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:scaleType="fitXY"
@@ -32,7 +32,7 @@
         <ImageView
             android:id="@+id/app_icon"
             android:layout_width="0dp"
-            android:layout_height="170dp"
+            android:layout_height="200dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
@@ -55,7 +55,7 @@
             android:text="Nom aplicació"
             android:textAllCaps="true"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/ic_usuari"
             app:layout_constraintEnd_toEndOf="@+id/marc_app"
@@ -63,11 +63,12 @@
 
         <ImageButton
             android:id="@+id/bt_edit"
-            android:layout_width="35dp"
-            android:layout_height="32dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:background="@color/transparent"
+            android:scaleType="fitCenter"
             android:tint="@color/gris_fosc"
             app:layout_constraintBottom_toBottomOf="@+id/marc_app"
             app:layout_constraintEnd_toEndOf="@+id/marc_app"
@@ -81,7 +82,7 @@
             android:gravity="center_vertical"
             android:text="usuarilmao"
             android:textColor="@color/gris_fosc"
-            android:textSize="18sp"
+            android:textSize="30sp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/ic_usuari"
             app:layout_constraintStart_toEndOf="@+id/ic_usuari"
@@ -97,25 +98,25 @@
             android:maxLines="1"
             android:text="plscontrasenya hola"
             android:textColor="@color/gris_fosc"
-            android:textSize="18sp"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@+id/ic_contrasenya"
             app:layout_constraintStart_toEndOf="@+id/ic_contrasenya"
             app:layout_constraintTop_toTopOf="@+id/ic_contrasenya"/>
 
         <ImageView
             android:id="@+id/ic_usuari"
-            android:layout_width="35dp"
-            android:layout_height="32dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="24dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="40dp"
             app:layout_constraintBottom_toTopOf="@+id/ic_contrasenya"
-            app:layout_constraintStart_toStartOf="@+id/marc_app"
+            app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/ic_usuari"/>
 
         <ImageView
             android:id="@+id/ic_contrasenya"
             android:layout_width="0dp"
-            android:layout_height="32dp"
+            android:layout_height="50dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/bt_edit"
             app:layout_constraintEnd_toEndOf="@+id/ic_usuari"
@@ -128,6 +129,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="4dp"
             android:backgroundTint="@color/transparent"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="@+id/contrasenya_editar"
             app:layout_constraintStart_toEndOf="@+id/contrasenya_editar"
             app:layout_constraintTop_toTopOf="@+id/contrasenya_editar"
@@ -143,7 +145,7 @@
             android:hint="Usuari"
             android:inputType="textPersonName"
             android:singleLine="true"
-            android:textSize="18sp"
+            android:textSize="30sp"
             android:visibility="invisible"
             app:layout_constraintBaseline_toBaselineOf="@+id/usuari_veure"
             app:layout_constraintStart_toEndOf="@+id/ic_usuari"/>
@@ -158,17 +160,18 @@
             android:hint="Contrasenya"
             android:inputType="textPersonName"
             android:singleLine="true"
-            android:textSize="18sp"
+            android:textSize="30sp"
             android:visibility="invisible"
             app:layout_constraintBaseline_toBaselineOf="@+id/contrasenya_veure"
             app:layout_constraintStart_toEndOf="@+id/ic_contrasenya"/>
 
         <ImageButton
             android:id="@+id/bt_cancelar"
-            android:layout_width="35dp"
+            android:layout_width="50dp"
             android:layout_height="0dp"
             android:layout_marginEnd="8dp"
             android:background="@color/transparent"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="@+id/bt_edit"
             app:layout_constraintEnd_toStartOf="@+id/bt_edit"
             app:layout_constraintTop_toTopOf="@+id/bt_edit"
