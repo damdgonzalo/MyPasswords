@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -64,8 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="AFEGIR"
-        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"/>
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
 
     <TextView
         android:id="@+id/missatge_error"
@@ -75,8 +75,8 @@
         android:text="Usuari o contrasenya incorrectes."
         android:textColor="@android:color/holo_red_dark"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"/>
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
 
     <EditText
         android:id="@+id/custom_app"

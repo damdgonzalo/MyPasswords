@@ -45,7 +45,7 @@
     <option name="ACTIVITY_CLASS" value="" />
     <method>
       <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516204324160" />
+      <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516204957880" />
       <option name="Make" enabled="true" />
     </method>
   </configuration>
