@@ -1,8 +1,9 @@
 package dam.inspalamos.mypasswords;
 
 
+import android.util.Log;
+
 import java.io.UnsupportedEncodingException;
-import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -12,8 +13,6 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
-import android.util.Log;
 
 public class GMailSender {
 
@@ -37,7 +36,7 @@ public class GMailSender {
      }
 
      public GMailSender(String fromEmail, String fromPassword,
-                  String toEmailList, String emailSubject, String emailBody) {
+                        String toEmailList, String emailSubject, String emailBody) {
           this.fromEmail = fromEmail;
           this.fromPassword = fromPassword;
           this.toEmailList = toEmailList;
@@ -58,9 +57,9 @@ public class GMailSender {
           emailMessage = new MimeMessage(mailSession);
 
           emailMessage.setFrom(new InternetAddress(fromEmail, fromEmail));
-               Log.i("GMail","toEmail: "+toEmailList);
-               emailMessage.addRecipient(Message.RecipientType.TO,
-                       new InternetAddress((String) toEmailList));
+          Log.i("GMail","toEmail: "+toEmailList);
+          emailMessage.addRecipient(Message.RecipientType.TO,
+                  new InternetAddress((String) toEmailList));
 
           emailMessage.setSubject(emailSubject);
           emailMessage.setContent(emailBody, "text/html");// for a html email

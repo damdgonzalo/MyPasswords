@@ -10,14 +10,15 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="310dp"
+        android:layout_height="248dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.773">
 
         <ImageView
             android:id="@+id/ic_contrasenya"
@@ -25,10 +26,9 @@
             android:layout_height="45dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/ic_usuari"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ic_usuari"
-            app:srcCompat="@drawable/ic_contrasenya" />
+            app:srcCompat="@drawable/ic_contrasenya"/>
 
         <ImageView
             android:id="@+id/ic_usuari"
@@ -39,11 +39,11 @@
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_usuari" />
+            app:srcCompat="@drawable/ic_usuari"/>
 
         <EditText
             android:id="@+id/usuari"
-            android:layout_width="wrap_content"
+            android:layout_width="213dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:ems="10"
@@ -54,11 +54,11 @@
             app:layout_constraintBottom_toBottomOf="@+id/ic_usuari"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ic_usuari"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <EditText
             android:id="@+id/contrasenya1"
-            android:layout_width="wrap_content"
+            android:layout_width="213dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -69,11 +69,11 @@
             app:layout_constraintBottom_toBottomOf="@+id/ic_contrasenya"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ic_contrasenya"
-            app:layout_constraintTop_toBottomOf="@+id/usuari" />
+            app:layout_constraintTop_toBottomOf="@+id/usuari"/>
 
         <EditText
             android:id="@+id/contrasenya2"
-            android:layout_width="wrap_content"
+            android:layout_width="213dp"
             android:layout_height="42dp"
             android:ems="10"
             android:hint="Repetir contrasenya"
@@ -82,7 +82,7 @@
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/contrasenya1"
             app:layout_constraintStart_toStartOf="@+id/contrasenya1"
-            app:layout_constraintTop_toBottomOf="@+id/contrasenya1" />
+            app:layout_constraintTop_toBottomOf="@+id/contrasenya1"/>
 
         <TextView
             android:id="@+id/contrasenya_oblidada"
@@ -96,32 +96,25 @@
             android:textColor="@color/gris_clar"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contrasenya2" />
+            app:layout_constraintTop_toBottomOf="@+id/contrasenya2"/>
 
         <Button
             android:id="@+id/bt_entrar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
             android:text="Entrar"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/contrasenya_oblidada" />
+            app:layout_constraintEnd_toEndOf="@+id/contrasenya1"
+            app:layout_constraintTop_toBottomOf="@+id/contrasenya_oblidada"/>
 
         <Button
             android:id="@+id/bt_reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:text="Reset"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_entrar" />
+            app:layout_constraintEnd_toStartOf="@+id/bt_entrar"
+            app:layout_constraintTop_toTopOf="@+id/bt_entrar"/>
 
     </android.support.constraint.ConstraintLayout>
 
@@ -131,7 +124,7 @@
         android:layout_height="78dp"
         android:layout_marginBottom="16dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/logo"
+        app:srcCompat="@drawable/logo"
         android:textColor="@color/gris_fosc"
         android:textSize="24sp"
         android:textStyle="bold"

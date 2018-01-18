@@ -1,13 +1,10 @@
 package dam.inspalamos.mypasswords;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -67,8 +64,10 @@ public class MainActivity extends AppCompatActivity {
              public void onClick(View view) {
                  if (!es_primera_vegada) {
                      try {
-                         new SendMailTask(MainActivity.this).execute("smxxcastillo@gmail.com",
-                                 "Kobe_Brayant_24", "xcastillo.girosystem@gmail.com", "Password", "La teva contrasenya és...");
+                         String contrasenya_recuperada = shared_preferences.getString("master_password", "");
+                         String usuari_enviar          = shared_preferences.getString("usuari", "");
+                         new SendMailTask(MainActivity.this).execute("damdgonzalo@gmail.com",
+                                 "DD32843Ph", usuari_enviar, "Recuperació de la contrasenya", "La teva contrasenya és '" + contrasenya_recuperada + "'");
 
                          Toast.makeText(getApplicationContext(), "S'ha enviat un correu al teu compte.", Toast.LENGTH_SHORT).show();
                      } catch (Exception e) {

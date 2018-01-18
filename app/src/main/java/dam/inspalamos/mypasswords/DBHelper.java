@@ -74,6 +74,10 @@ public class DBHelper extends SQLiteOpenHelper{
      public void eliminar_info() {
           SQLiteDatabase bd = this.getWritableDatabase();
           bd.execSQL("DELETE FROM "+ TAULA_APLICACIONS);
+
+          bd.execSQL("INSERT INTO " + TAULA_APLICACIONS + " VALUES ('Twitter','usuari2','" + encriptar_contrasenya("contrasenya2", secret_key) + "')");
+          bd.execSQL("INSERT INTO " + TAULA_APLICACIONS + " VALUES ('Facebook','usuari1','" + encriptar_contrasenya("contrasenya1", secret_key) + "')");
+
      }
 
 
