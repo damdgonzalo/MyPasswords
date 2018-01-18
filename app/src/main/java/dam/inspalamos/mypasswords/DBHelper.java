@@ -71,6 +71,11 @@ public class DBHelper extends SQLiteOpenHelper{
           bd.execSQL("DELETE FROM " + TAULA_APLICACIONS + " WHERE aplicacio='" + app.getNom_app() + "' AND usuari='" + app.getUsuari() + "'");
      }
 
+     public void eliminar_info() {
+          SQLiteDatabase bd = this.getWritableDatabase();
+          bd.execSQL("DELETE FROM "+ TAULA_APLICACIONS);
+     }
+
 
      public void actualitzar_compte(String aplicacio, String usuari_nou, String usuari_vell, String contrasenya) {
           SQLiteDatabase bd = this.getWritableDatabase();
