@@ -9,7 +9,7 @@
     tools:layout_editor_absoluteY="81dp">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout2"
         android:layout_width="312dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -124,7 +124,7 @@
         android:textColor="@color/gris_fosc"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"/>

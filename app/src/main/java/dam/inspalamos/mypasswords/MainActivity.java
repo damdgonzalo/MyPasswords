@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                      try {
                          String contrasenya_recuperada = shared_preferences.getString("master_password", "");
                          String usuari_enviar          = shared_preferences.getString("usuari", "");
-                         new SendMailTask(MainActivity.this).execute("usuari@gmail.com",
+                         new SendMailTask(MainActivity.this).execute("mypassord123@gmail.com",
                                  "contrasenya", usuari_enviar, "Recuperació de la contrasenya", "La teva contrasenya és '" + contrasenya_recuperada + "'");
 
                          Toast.makeText(getApplicationContext(), "S'ha enviat un correu al teu compte.", Toast.LENGTH_SHORT).show();

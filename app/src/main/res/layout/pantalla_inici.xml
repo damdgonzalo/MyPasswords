@@ -9,7 +9,7 @@
     tools:layout_editor_absoluteY="81dp">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout2"
         android:layout_width="310dp"
         android:layout_height="248dp"
         android:orientation="vertical"
@@ -64,12 +64,12 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Contrasenya"
-            android:inputType="textPassword|textVisiblePassword"
+            android:inputType="textPassword"
             android:textColor="@color/gris_fosc"
             app:layout_constraintBottom_toBottomOf="@+id/ic_contrasenya"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ic_contrasenya"
-            app:layout_constraintTop_toBottomOf="@+id/usuari"/>
+            app:layout_constraintTop_toBottomOf="@+id/usuari" />
 
         <EditText
             android:id="@+id/contrasenya2"
@@ -77,12 +77,12 @@
             android:layout_height="42dp"
             android:ems="10"
             android:hint="Repetir contrasenya"
-            android:inputType="textPassword|textVisiblePassword"
+            android:inputType="textPassword"
             android:textColor="@color/gris_fosc"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/contrasenya1"
             app:layout_constraintStart_toStartOf="@+id/contrasenya1"
-            app:layout_constraintTop_toBottomOf="@+id/contrasenya1"/>
+            app:layout_constraintTop_toBottomOf="@+id/contrasenya1" />
 
         <TextView
             android:id="@+id/contrasenya_oblidada"
@@ -128,7 +128,7 @@
         android:textColor="@color/gris_fosc"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"/>
