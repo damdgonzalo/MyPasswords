@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
      Button bt_accedir;
      Button bt_reset;
 
+     ImageView clau;
+
      @Override
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -44,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
          contrasenya_oblidada = (TextView) findViewById(R.id.contrasenya_oblidada);
          bt_accedir = (Button) findViewById(R.id.bt_entrar);
          bt_reset = (Button) findViewById(R.id.bt_reset);
+
+         clau   = (ImageView) findViewById(R.id.titol);
+
+         clau.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animacio));
 
          //és la primera vegada que s'executa l'aplicació
          if (es_primera_vegada) {

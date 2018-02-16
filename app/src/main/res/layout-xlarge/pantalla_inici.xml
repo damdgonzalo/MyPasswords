@@ -11,13 +11,13 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/linearLayout2"
         android:layout_width="312dp"
-        android:layout_height="wrap_content"
+        android:layout_height="281dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.737">
+        app:layout_constraintVertical_bias="0.535">
 
         <ImageView
             android:id="@+id/ic_contrasenya"
@@ -62,7 +62,7 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Contrasenya"
-            android:inputType="textPassword|textVisiblePassword"
+            android:inputType="textPassword"
             android:textColor="@color/gris_fosc"
             app:layout_constraintBottom_toBottomOf="@+id/ic_contrasenya"
             app:layout_constraintStart_toEndOf="@+id/ic_contrasenya"
@@ -74,7 +74,7 @@
             android:layout_height="42dp"
             android:ems="10"
             android:hint="Repetir contrasenya"
-            android:inputType="textPassword|textVisiblePassword"
+            android:inputType="textPassword"
             android:textColor="@color/gris_fosc"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/contrasenya1"
