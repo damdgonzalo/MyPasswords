@@ -118,19 +118,68 @@
 
     </android.support.constraint.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/titol"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="235dp"
-        android:layout_height="78dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/logo"
-        android:textColor="@color/gris_fosc"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintHorizontal_bias="0.602"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logo_sa"
+            android:layout_width="158dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo_sa"/>
+
+        <ImageView
+            android:id="@+id/logo_passw"
+            android:layout_width="134dp"
+            android:layout_height="33dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo_sa"
+            app:srcCompat="@drawable/logo_passw"/>
+
+        <ImageView
+            android:id="@+id/logo_clau"
+            android:layout_width="50dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="108dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.51"
+            app:srcCompat="@drawable/logo_clau"/>
+
+        <ImageView
+            android:id="@+id/logo_e"
+            android:layout_width="44dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toEndOf="@+id/logo_clau"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo_e"/>
+
+        <ImageView
+            android:id="@+id/logo_rds"
+            android:layout_width="91dp"
+            android:layout_height="33dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo_e"
+            app:srcCompat="@drawable/logo_rds"/>
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

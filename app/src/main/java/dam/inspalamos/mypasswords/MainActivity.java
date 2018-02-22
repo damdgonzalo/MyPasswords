@@ -5,7 +5,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +21,7 @@ import com.daimajia.androidanimations.library.YoYo;
 import java.security.NoSuchAlgorithmException;
 
 import static android.view.View.GONE;
+import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
      Button bt_accedir;
      Button bt_reset;
 
-     ImageView clau;
+     ImageView logo_sa, logo_e, logo_passw, logo_rds, logo_clau;
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +52,52 @@ public class MainActivity extends AppCompatActivity {
          bt_accedir = (Button) findViewById(R.id.bt_entrar);
          bt_reset = (Button) findViewById(R.id.bt_reset);
 
-         clau   = (ImageView) findViewById(R.id.titol);
+         logo_sa = (ImageView) findViewById(R.id.logo_sa);
+         logo_e = (ImageView) findViewById(R.id.logo_e);
+         logo_passw = (ImageView) findViewById(R.id.logo_passw);
+         logo_rds = (ImageView) findViewById(R.id.logo_rds);
+         logo_clau = (ImageView) findViewById(R.id.logo_clau);
 
-         clau.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animacio));
+         logo_sa.setVisibility(INVISIBLE);
+         logo_e.setVisibility(INVISIBLE);
+         logo_passw.setVisibility(INVISIBLE);
+         logo_rds.setVisibility(INVISIBLE);
+
+         logo_clau.setAnimation(AnimationUtils.loadAnimation(this, R.anim.animacio));
+
+
+
+         logo_clau.getAnimation().setAnimationListener(new Animation.AnimationListener() {
+             @Override
+             public void onAnimationStart(Animation animation) {
+
+             }
+
+             @Override
+             public void onAnimationEnd(Animation animation) {
+                 Log.i("ANIMEND","sfsdf");
+
+                 logo_sa.setAnimation(AnimationUtils.loadAnimation(logo_sa.getContext(), R.anim.apareixer));
+                 logo_sa.getAnimation().setAnimationListener(anim_listener(logo_sa));
+
+
+                 logo_e.setAnimation(AnimationUtils.loadAnimation(logo_e.getContext(), R.anim.apareixer));
+                 logo_e.getAnimation().setAnimationListener(anim_listener(logo_e));
+
+                 logo_passw.setAnimation(AnimationUtils.loadAnimation(logo_passw.getContext(), R.anim.apareixer));
+                 logo_passw.getAnimation().setAnimationListener(anim_listener(logo_passw));
+
+                 logo_rds.setAnimation(AnimationUtils.loadAnimation(logo_rds.getContext(), R.anim.apareixer));
+                 logo_rds.getAnimation().setAnimationListener(anim_listener(logo_rds));
+             }
+
+             @Override
+             public void onAnimationRepeat(Animation animation) {
+
+             }
+         });
+
+         logo_clau.startAnimation(logo_clau.getAnimation());
 
          //és la primera vegada que s'executa l'aplicació
          if (es_primera_vegada) {
@@ -148,6 +194,28 @@ public class MainActivity extends AppCompatActivity {
           findViewById(R.id.ic_usuari).setVisibility(GONE);
           usuari.setVisibility(GONE);
           contrasenya2.setVisibility(GONE);
+     }
+
+     public Animation.AnimationListener anim_listener(View v) {
+
+         Animation.AnimationListener listener = new Animation.AnimationListener() {
+             @Override
+             public void onAnimationStart(Animation animation) {
+
+             }
+
+             @Override
+             public void onAnimationEnd(Animation animation) {
+                v.setVisibility(VISIBLE);
+             }
+
+             @Override
+             public void onAnimationRepeat(Animation animation) {
+
+             }
+         };
+
+         return listener;
      }
 
 }
